@@ -1,0 +1,31 @@
+# Build output
+/target/
+
+# IDE / Editor settings
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# VS Code workspace junk
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+hs_err_pid*
+
+# Local SDKs / downloaded libs (use Maven instead)
+lib/javafx-sdk-*/
+
+# Shaded interim pom (can regenerate)
+dependency-reduced-pom.xml
+
+# Backup / misc
+*.bak
+*.swp
+~$*

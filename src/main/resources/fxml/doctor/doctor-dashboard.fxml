@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.DoctorDashboardController">
+    
+    <!-- Left Sidebar Navigation -->
+    <VBox styleClass="sidebar" prefWidth="250" spacing="10">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <VBox styleClass="profile-section" spacing="10">
+            <Label fx:id="doctorNameLabel" styleClass="doctor-name"/>
+            <Label fx:id="specialtyLabel" styleClass="specialty"/>
+        </VBox>
+
+        <Separator/>
+
+        <VBox spacing="5" styleClass="nav-buttons">
+            <Button text="My Patients" onAction="#showPatients" styleClass="nav-button"/>
+            <Button text="Appointments" onAction="#showAppointments" styleClass="nav-button"/>
+            <Button text="Write Prescription" onAction="#showPrescriptionForm" styleClass="nav-button"/>
+            <Button text="Diagnoses" onAction="#showDiagnoses" styleClass="nav-button"/>
+            <Button text="Profile Settings" onAction="#showProfile" styleClass="nav-button"/>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+    </VBox>
+
+    <!-- Main Content Area -->
+    <StackPane fx:id="contentArea" HBox.hgrow="ALWAYS" styleClass="content-area">
+        <!-- Default Welcome Screen -->
+        <VBox styleClass="welcome-screen" alignment="CENTER" spacing="20">
+            <Text text="Welcome, Doctor" styleClass="welcome-text"/>
+            <Text text="Select an option from the menu to get started" styleClass="welcome-subtext"/>
+            
+            <!-- Quick Stats -->
+            <HBox spacing="20" alignment="CENTER">
+                <VBox styleClass="stat-box">
+                    <Text fx:id="todayAppointmentsCount" styleClass="stat-number"/>
+                    <Text text="Today's Appointments" styleClass="stat-label"/>
+                </VBox>
+                
+                <VBox styleClass="stat-box">
+                    <Text fx:id="totalPatientsCount" styleClass="stat-number"/>
+                    <Text text="Total Patients" styleClass="stat-label"/>
+                </VBox>
+                
+                <VBox styleClass="stat-box">
+                    <Text fx:id="pendingPrescriptionsCount" styleClass="stat-number"/>
+                    <Text text="Pending Prescriptions" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </StackPane>
+</HBox>

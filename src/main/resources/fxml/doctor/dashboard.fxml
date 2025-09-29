@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="dashboard" stylesheets="@../../css/doctor-dashboard.css" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.smartmedicare.controllers.doctor.DoctorDashboardController">
+    
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20"/>
+                </padding>
+                
+                <VBox spacing="5">
+                    <Label fx:id="doctorNameLabel" styleClass="doctor-name"/>
+                    <Label fx:id="specialtyLabel" styleClass="specialty"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+            </HBox>
+            
+            <HBox spacing="20" alignment="CENTER" styleClass="stats-bar">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="20"/>
+                </padding>
+                
+                <VBox styleClass="stat-box" alignment="CENTER">
+                    <Text fx:id="todayAppointmentsCount" styleClass="stat-number"/>
+                    <Label text="Today's Appointments" styleClass="stat-label"/>
+                </VBox>
+                
+                <VBox styleClass="stat-box" alignment="CENTER">
+                    <Text fx:id="totalPatientsCount" styleClass="stat-number"/>
+                    <Label text="Total Patients" styleClass="stat-label"/>
+                </VBox>
+                
+                <VBox styleClass="stat-box" alignment="CENTER">
+                    <Text fx:id="pendingPrescriptionsCount" styleClass="stat-number"/>
+                    <Label text="Pending Prescriptions" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <left>
+        <VBox styleClass="sidebar" spacing="10">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            
+            <Button text="My Schedule" onAction="#showSchedule" styleClass="nav-button"/>
+            <Button text="Patient Appointments" onAction="#showAppointments" styleClass="nav-button"/>
+            <Button text="Patient Records" onAction="#showPatientRecords" styleClass="nav-button"/>
+            <Button text="Prescriptions" onAction="#showPrescriptions" styleClass="nav-button"/>
+            <Button text="Disease Detection" onAction="#showDiseaseDetection" styleClass="nav-button"/>
+            <Button text="Disease Analysis" onAction="#showDiseaseAnalysis" styleClass="nav-button"/>
+            <Button text="Profile" onAction="#showProfile" styleClass="nav-button"/>
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane fx:id="contentArea">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <!-- Default welcome content -->
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="Welcome to Your Dashboard" styleClass="title-label"/>
+                <Label text="Please select an option from the menu" styleClass="subtitle-label"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

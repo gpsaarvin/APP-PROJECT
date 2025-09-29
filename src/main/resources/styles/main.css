@@ -1,0 +1,82 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #1a237e, #0d47a1);
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 20px 0;
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 20;
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-padding: 8px 15px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #666;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0);
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 0);
+}
+
+.secondary-button {
+    -fx-background-color: #2196F3;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #1976D2;
+}
+
+.error-label {
+    -fx-text-fill: #ff1744;
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
+}
+
+.login-container {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-padding: 30px;
+    -fx-spacing: 15;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 0);
+}
+
+.welcome-text {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 0);
+}
+
+.field-container {
+    -fx-spacing: 10;
+}
+
+.button-container {
+    -fx-spacing: 15;
+    -fx-padding: 20px 0;
+}

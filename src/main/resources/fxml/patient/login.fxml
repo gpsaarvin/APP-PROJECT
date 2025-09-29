@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+
+<VBox alignment="CENTER" spacing="20" styleClass="login-container"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartmedicare.controllers.LoginController">
+
+    <padding>
+        <Insets top="20" right="40" bottom="20" left="40"/>
+    </padding>
+
+    <stylesheets>
+        <URL value="@../../styles/main.css"/>
+    </stylesheets>
+
+    <VBox alignment="CENTER" spacing="10" styleClass="logo-container">
+        <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+            <Image url="@../../images/patient-icon.png"/>
+        </ImageView>
+        <Text styleClass="title-text">Patient Login</Text>
+    </VBox>
+
+    <VBox spacing="15" styleClass="form-container" maxWidth="350">
+        <Label fx:id="errorLabel" styleClass="error-label" visible="false" managed="false"/>
+        
+        <VBox spacing="5">
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" promptText="Enter your username" styleClass="input-field"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="input-field"/>
+        </VBox>
+
+        <Button onAction="#handleLogin" text="Login" styleClass="primary-button" maxWidth="Infinity"/>
+        
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="New patient?" styleClass="text-muted"/>
+            <Hyperlink onAction="#handleRegisterNavigation" text="Register here" styleClass="link-button"/>
+        </HBox>
+        
+        <Separator/>
+        
+        <Button onAction="#handleBack" text="Back to Main Menu" styleClass="secondary-button"/>
+    </VBox>
+</VBox>

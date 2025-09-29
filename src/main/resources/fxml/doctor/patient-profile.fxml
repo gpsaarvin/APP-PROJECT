@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToWidth="true" styleClass="content-pane"
+            stylesheets="@../../styles/doctor-dashboard.css"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.smartmedicare.controllers.doctor.PatientProfileController">
+    
+    <VBox spacing="20">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Header with Patient Info -->
+        <HBox spacing="20" styleClass="profile-header">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label fx:id="patientNameLabel" styleClass="patient-name"/>
+                <Text fx:id="patientDetailsText" styleClass="patient-details"/>
+            </VBox>
+            <Button text="Edit Notes" onAction="#handleEditNotes"/>
+        </HBox>
+
+        <!-- Quick Stats -->
+        <GridPane styleClass="stats-grid" hgap="20" vgap="20">
+            <VBox styleClass="stat-box" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Text fx:id="appointmentsCount" styleClass="stat-number"/>
+                <Text text="Total Visits" styleClass="stat-label"/>
+            </VBox>
+            
+            <VBox styleClass="stat-box" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Text fx:id="prescriptionsCount" styleClass="stat-number"/>
+                <Text text="Prescriptions" styleClass="stat-label"/>
+            </VBox>
+            
+            <VBox styleClass="stat-box" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Text fx:id="pendingFollowUpsCount" styleClass="stat-number"/>
+                <Text text="Pending Follow-ups" styleClass="stat-label"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Patient Records Tabs -->
+        <TabPane>
+            <Tab text="Medical History" closable="false">
+                <VBox spacing="10">
+                    <TableView fx:id="medicalHistoryTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date"/>
+                            <TableColumn fx:id="conditionColumn" text="Condition"/>
+                            <TableColumn fx:id="treatmentColumn" text="Treatment"/>
+                            <TableColumn fx:id="notesColumn" text="Notes"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Prescriptions" closable="false">
+                <VBox spacing="10">
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="New Prescription" onAction="#handleNewPrescription"/>
+                    </HBox>
+                    <TableView fx:id="prescriptionsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="prescriptionDateColumn" text="Date"/>
+                            <TableColumn fx:id="medicinesColumn" text="Medicines"/>
+                            <TableColumn fx:id="diagnosisColumn" text="Diagnosis"/>
+                            <TableColumn fx:id="followUpColumn" text="Follow-up"/>
+                            <TableColumn fx:id="actionsColumn" text="Actions"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <Tab text="Appointments" closable="false">
+                <VBox spacing="10">
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Schedule Appointment" onAction="#handleScheduleAppointment"/>
+                    </HBox>
+                    <TableView fx:id="appointmentsTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="appointmentDateColumn" text="Date"/>
+                            <TableColumn fx:id="reasonColumn" text="Reason"/>
+                            <TableColumn fx:id="statusColumn" text="Status"/>
+                            <TableColumn fx:id="appointmentNotesColumn" text="Notes"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </TabPane>
+
+        <!-- Notes Section -->
+        <TitledPane text="Doctor's Notes" expanded="false">
+            <VBox spacing="10">
+                <TextArea fx:id="doctorNotesArea" wrapText="true" 
+                         prefRowCount="4" editable="false"/>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Save Notes" onAction="#handleSaveNotes" 
+                            visible="false" fx:id="saveNotesButton"/>
+                </HBox>
+            </VBox>
+        </TitledPane>
+    </VBox>
+</ScrollPane>

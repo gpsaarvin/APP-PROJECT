@@ -1,0 +1,129 @@
+.dashboard {
+    background-color: #f5f6fa; /* standard */
+    -fx-background-color: #f5f6fa;
+}
+
+.header {
+    background-color: white; /* standard */
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.doctor-name {
+    font-size: 18px; /* standard */
+    font-weight: bold; /* standard */
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.specialty {
+    font-size: 14px; /* standard */
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.stats-bar {
+    background-color: #f8f9fa; /* standard */
+    border-color: #e9ecef; /* standard */
+    border-width: 1px 0 0 0; /* standard */
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 1 0 0 0;
+}
+
+.stat-box {
+    background-color: white; /* standard */
+    padding: 15px; /* standard */
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    min-width: 200px; /* standard */
+    -fx-min-width: 200px;
+}
+
+.stat-number {
+    font-size: 24px; /* standard */
+    font-weight: bold; /* standard */
+    color: #3498db; /* standard equivalent for fill */
+    fill: #3498db; /* standard SVG fill */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #3498db;
+}
+
+.stat-label {
+    font-size: 12px; /* standard */
+    -fx-font-size: 12px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.sidebar {
+    background-color: white; /* standard */
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 2, 0);
+    min-width: 200px; /* standard */
+    -fx-min-width: 200px;
+}
+
+.nav-button {
+    background-color: transparent; /* standard */
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c3e50;
+    font-size: 14px; /* standard */
+    -fx-font-size: 14px;
+    padding: 10px 15px; /* standard */
+    -fx-padding: 10px 15px;
+    -fx-alignment: CENTER_LEFT;
+    max-width: 100%; /* standard approximation */
+    -fx-max-width: infinity;
+}
+
+.nav-button:hover {
+    background-color: #f8f9fa; /* standard */
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #3498db;
+}
+
+.nav-button:pressed {
+    background-color: #e9ecef; /* standard */
+    -fx-background-color: #e9ecef;
+}
+
+.logout-button {
+    background-color: #e74c3c; /* standard */
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    font-size: 14px; /* standard */
+    -fx-font-size: 14px;
+    padding: 8px 15px; /* standard */
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+}
+
+.logout-button:hover {
+    background-color: #c0392b; /* standard */
+    -fx-background-color: #c0392b;
+}
+
+.title-label {
+    font-size: 24px; /* standard */
+    font-weight: bold; /* standard */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.subtitle-label {
+    font-size: 16px; /* standard */
+    -fx-font-size: 16px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.content-area {
+    background-color: white; /* standard */
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}

@@ -1,0 +1,138 @@
+/* Base Colors */
+.root {
+    -fx-background-color: #f8f9fa;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    background-color: #2c3e50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+.profile-section {
+    -fx-padding: 20 0;
+    padding: 20px 0;
+}
+
+.doctor-name {
+    -fx-font-size: 18px;
+    font-size: 18px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-text-fill: white;
+    color: white;
+}
+
+.specialty {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-text-fill: #bdc3c7;
+    color: #bdc3c7;
+}
+
+.nav-buttons {
+    -fx-padding: 10 0;
+    padding: 10px 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    text-align: left;
+    -fx-padding: 10 15;
+    padding: 10px 15px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-min-width: 200;
+    min-width: 200px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #34495e;
+    background-color: #34495e;
+}
+
+.logout-button {
+    -fx-background-color: #e74c3c;
+    background-color: #e74c3c;
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    -fx-background-color: #c0392b;
+    background-color: #c0392b;
+}
+
+/* Content Area */
+.content-area {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-padding: 20;
+    padding: 20px;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    -fx-padding: 40;
+    padding: 40px;
+}
+
+.welcome-text {
+    -fx-font-size: 32px;
+    font-size: 32px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-fill: #2c3e50;
+    fill: #2c3e50;
+}
+
+.welcome-subtext {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-fill: #7f8c8d;
+    fill: #7f8c8d;
+}
+
+/* Stats Boxes */
+.stat-box {
+    -fx-background-color: #f8f9fa;
+    background-color: #f8f9fa;
+    -fx-padding: 20;
+    padding: 20px;
+    -fx-min-width: 200;
+    min-width: 200px;
+    -fx-alignment: CENTER;
+    text-align: center;
+    -fx-border-radius: 5;
+    border-radius: 5px;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.stat-number {
+    -fx-font-size: 28px;
+    font-size: 28px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-fill: #2c3e50;
+    fill: #2c3e50;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-fill: #7f8c8d;
+    fill: #7f8c8d;
+    -fx-padding: 5 0 0 0;
+    padding: 5px 0 0 0;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" styleClass="content-pane"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentBookingController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Book an Appointment" styleClass="page-title"/>
+
+    <GridPane vgap="10" hgap="10">
+        <Label text="Specialization:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="specializationComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                  onAction="#handleSpecializationChange"/>
+
+        <Label text="Doctor:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="doctorComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                  onAction="#handleDoctorChange"/>
+
+        <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                    onAction="#handleDateChange"/>
+
+        <Label text="Time Slot:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="timeSlotComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Reason:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextArea fx:id="reasonTextArea" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                  prefRowCount="3"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Clear" onAction="#handleClear" styleClass="secondary-button"/>
+        <Button text="Book Appointment" onAction="#handleBookAppointment" styleClass="action-button"/>
+    </HBox>
+
+    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
+</VBox>

@@ -1,0 +1,200 @@
+.landing-page, .login-page, .register-page {
+    -fx-background-color: #f0f2f5;
+    background-color: #f0f2f5;
+}
+
+/* New Landing page layout */
+.landing-root { -fx-background-color: white; background-color: white; }
+.topbar { -fx-background-color: #f7f9fb; background-color: #f7f9fb; }
+.topbar-links > .hyperlink { -fx-text-fill: #39a2c7; color: #39a2c7; -fx-border-color: transparent; border-color: transparent; }
+.topbar-contact { -fx-text-fill: #39a2c7; color: #39a2c7; }
+
+.header { -fx-background-color: white; background-color: white; -fx-border-color: #e6eef2; border-color: #e6eef2; -fx-border-width: 0 0 1 0; border-width: 0 0 1 0; }
+.logo { -fx-font-size: 20px; font-size: 20px; -fx-font-weight: bold; font-weight: bold; -fx-text-fill: #2b3e50; color: #2b3e50; }
+.tagline { -fx-text-fill: #9aa9b5; }
+.nav-button { -fx-background-color: transparent; background-color: transparent; -fx-text-fill: #2b3e50; color: #2b3e50; -fx-padding: 8 12; padding: 8 12; }
+.nav-button:hover { -fx-background-color: #eaf4f8; background-color: #eaf4f8; }
+.nav-button.active { -fx-background-color: #39a2c7; background-color: #39a2c7; -fx-text-fill: white; color: white; -fx-background-radius: 2; }
+
+.hero { -fx-background-color: #cfe9f3; background-color: #cfe9f3; }
+.hero-bg { -fx-background-color: linear-gradient(to right, #cfe9f3, #bfe2ef); background-color: #cfe9f3; }
+.hero-content { -fx-padding: 40 0 40 0; padding: 40 0 40 0; }
+.hero-title { -fx-font-size: 28px; font-size: 28px; -fx-text-fill: white; color: white; -fx-font-weight: bold; font-weight: bold; }
+.hero-subtitle { -fx-text-fill: white; color: white; -fx-opacity: 0.9; opacity: 0.9; }
+.hero-image { -fx-background-color: rgba(255,255,255,0.4); background-color: rgba(255,255,255,0.4); -fx-background-radius: 6; }
+
+.primary-button { -fx-background-color: #39a2c7; background-color: #39a2c7; -fx-text-fill: white; color: white; -fx-padding: 10 20; padding: 10 20; -fx-background-radius: 3; }
+.primary-button:hover { -fx-background-color: #2b8cad; background-color: #2b8cad; }
+
+.content-row { -fx-padding: 20 40 40 40; padding: 20 40 40 40; }
+.doctor-photo { -fx-background-color: #eef5f8; background-color: #eef5f8; -fx-background-radius: 4; }
+.card { -fx-background-color: #f4f6f8; background-color: #f4f6f8; -fx-padding: 16; padding: 16; -fx-background-radius: 4; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0.2, 0, 2); }
+.card-title { -fx-font-weight: bold; font-weight: bold; -fx-text-fill: #2b3e50; color: #2b3e50; }
+.section-title { -fx-font-size: 18px; font-size: 18px; -fx-font-weight: bold; font-weight: bold; -fx-text-fill: #2b3e50; color: #2b3e50; }
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitle-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #7f8c8d;
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+.login-button, .action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    background-color: #3498db;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.login-button:hover, .action-button:hover {
+    -fx-background-color: #2980b9;
+    -fx-cursor: hand;
+    background-color: #2980b9;
+    cursor: pointer;
+}
+
+.secondary-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    background-color: #95a5a6;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #7f8c8d;
+    -fx-cursor: hand;
+    background-color: #7f8c8d;
+    cursor: pointer;
+}
+
+.error-label {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 14px;
+    -fx-background-color: #fadbd8;
+    -fx-padding: 10;
+    -fx-background-radius: 5;
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    border-color: #e74c3c;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #e74c3c;
+    font-size: 14px;
+    background-color: #fadbd8;
+    padding: 10px;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+}
+
+.success-label {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 14px;
+    -fx-background-color: #daf7e8;
+    -fx-padding: 10;
+    -fx-background-radius: 5;
+    -fx-border-color: #27ae60;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    border-color: #27ae60;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #27ae60;
+    font-size: 14px;
+    background-color: #daf7e8;
+    padding: 10px;
+    border: 1px solid #27ae60;
+    border-radius: 5px;
+}
+
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    border-color: #bdc3c7;
+    border-width: 1px;
+    -fx-padding: 5;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    padding: 5px;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    -fx-background-color: #f0f2f5;
+    background-color: #f0f2f5;
+}
+
+.header {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+    background-color: #2c3e50;
+    padding: 10px;
+}
+
+.welcome-text {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    color: white;
+    font-size: 18px;
+}
+
+.sidebar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-alignment: CENTER_LEFT;
+    background-color: transparent;
+    color: #2c3e50;
+    font-size: 14px;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.nav-button:hover {
+    -fx-background-color: #f0f2f5;
+    -fx-cursor: hand;
+    background-color: #f0f2f5;
+    cursor: pointer;
+}
+
+.logout-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    -fx-background-color: #c0392b;
+    -fx-cursor: hand;
+    background-color: #c0392b;
+    cursor: pointer;
+}

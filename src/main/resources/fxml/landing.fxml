@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LandingController">
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="40" bottom="40" left="40" right="40"/>
+            </padding>
+            <Label text="Smart Medicare" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Label text="Welcome! Choose your portal."/>
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Patient Login" onAction="#handlePatientLogin"/>
+                <Button text="Doctor Login" onAction="#handleDoctorLogin"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

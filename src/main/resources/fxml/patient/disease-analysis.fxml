@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<VBox spacing="20" styleClass="content-panel" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.smartmedicare.controllers.patient.DiseaseAnalysisController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Disease Analysis" styleClass="page-title"/>
+    
+    <!-- Symptoms Input Section -->
+    <VBox spacing="10">
+        <Label text="Enter your symptoms:" styleClass="section-label"/>
+        <HBox spacing="10">
+            <TextField fx:id="symptomField" prefWidth="300" promptText="Type a symptom"/>
+            <Button text="Add" onAction="#handleAddSymptom"/>
+        </HBox>
+        <FlowPane fx:id="symptomChips" hgap="10" vgap="10"/>
+    </VBox>
+    
+    <!-- Analysis Results -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="Possible Conditions:" styleClass="section-label"/>
+        <TableView fx:id="conditionsTable">
+            <columns>
+                <TableColumn fx:id="conditionColumn" text="Condition"/>
+                <TableColumn fx:id="probabilityColumn" text="Probability"/>
+                <TableColumn fx:id="severityColumn" text="Severity"/>
+            </columns>
+        </TableView>
+        
+        <!-- Chart Section -->
+        <PieChart fx:id="probabilityChart" title="Probability Distribution"/>
+        
+        <Label fx:id="disclaimerLabel" styleClass="disclaimer-text" wrapText="true"
+               text="Note: This analysis is for informational purposes only. Please consult a healthcare professional for proper diagnosis."/>
+    </VBox>
+    
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Clear" onAction="#handleClear" styleClass="secondary-button"/>
+        <Button text="Analyze" onAction="#handleAnalyze" styleClass="primary-button"/>
+        <Button text="Book Appointment" onAction="#handleBookAppointment" styleClass="primary-button"/>
+    </HBox>
+</VBox>

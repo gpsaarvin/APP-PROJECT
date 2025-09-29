@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="dashboard" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.smartmedicare.controllers.patient.PatientDashboardController">
+    
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            
+            <Label fx:id="welcomeLabel" styleClass="welcome-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+    
+    <left>
+        <VBox styleClass="sidebar" spacing="10">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            
+            <Button text="Book Appointment" onAction="#showAppointmentBooking" styleClass="nav-button"/>
+            <Button text="My Appointments" onAction="#showAppointments" styleClass="nav-button"/>
+            <Button text="Medical History" onAction="#showMedicalHistory" styleClass="nav-button"/>
+            <Button text="Prescriptions" onAction="#showPrescriptions" styleClass="nav-button"/>
+            <Button text="Disease Analysis" onAction="#showDiseaseAnalysis" styleClass="nav-button"/>
+            <Button text="Profile" onAction="#showProfile" styleClass="nav-button"/>
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane fx:id="contentArea">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <!-- Default welcome content -->
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="Welcome to Smart Medicare" styleClass="title-label"/>
+                <Label text="Please select an option from the menu" styleClass="subtitle-label"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

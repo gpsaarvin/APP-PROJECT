@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.smartmedicare.controllers.doctor.DiseaseDetectionController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="AI Disease Detection" styleClass="title-label"/>
+    
+    <GridPane vgap="10" hgap="10">
+        <Label text="Patient Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label fx:id="patientNameLabel" styleClass="info-text" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="dateLabel" styleClass="info-text" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <VBox spacing="10">
+        <Label text="Symptoms"/>
+        <HBox spacing="10">
+            <ComboBox fx:id="symptomComboBox" promptText="Select symptom" prefWidth="200"/>
+            <ComboBox fx:id="severityComboBox" promptText="Severity" prefWidth="120"/>
+            <TextField fx:id="durationField" promptText="Duration (e.g., 2 days)" prefWidth="150"/>
+            <Button text="Add" onAction="#handleAddSymptom" styleClass="primary-button"/>
+        </HBox>
+        <TableView fx:id="symptomsTable" VBox.vgrow="ALWAYS" prefHeight="150">
+            <columns>
+                <TableColumn fx:id="symptomColumn" text="Symptom" prefWidth="150"/>
+                <TableColumn fx:id="severityColumn" text="Severity" prefWidth="100"/>
+                <TableColumn fx:id="durationColumn" text="Duration" prefWidth="100"/>
+                <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <VBox spacing="10">
+        <Label text="Notes"/>
+        <TextArea fx:id="notesArea" prefRowCount="3" wrapText="true"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Analyze Symptoms" onAction="#handleAnalyzeSymptoms" styleClass="primary-button"/>
+        <ProgressIndicator fx:id="progressIndicator" visible="false"/>
+    </HBox>
+
+    <VBox spacing="10" fx:id="resultsBox" visible="false">
+        <Label text="Analysis Results" styleClass="section-label"/>
+        <TableView fx:id="resultsTable" prefHeight="150">
+            <columns>
+                <TableColumn fx:id="diseaseColumn" text="Potential Condition" prefWidth="200"/>
+                <TableColumn fx:id="probabilityColumn" text="Probability" prefWidth="100"/>
+            </columns>
+        </TableView>
+        
+        <Label text="AI Recommendation" styleClass="section-label"/>
+        <TextArea fx:id="recommendationArea" prefRowCount="4" wrapText="true" editable="false"/>
+        
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Save to Medical Record" onAction="#handleSaveToRecord" styleClass="primary-button"/>
+            <Button text="Clear Results" onAction="#handleClear" styleClass="secondary-button"/>
+        </HBox>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@/styles/disease-detection.css"/>
+    </stylesheets>
+</VBox>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" styleClass="content-pane"
+      stylesheets="@../../styles/prescriptions.css"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.PrescriptionsController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="My Prescriptions" styleClass="page-title"/>
+
+    <TableView fx:id="prescriptionsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date Issued"/>
+            <TableColumn fx:id="doctorColumn" text="Doctor"/>
+            <TableColumn fx:id="diagnosisColumn" text="Diagnosis"/>
+            <TableColumn fx:id="medicinesColumn" text="Medicines"/>
+            <TableColumn fx:id="followUpColumn" text="Follow Up Date"/>
+            <TableColumn fx:id="actionsColumn" text="Actions"/>
+        </columns>
+    </TableView>
+
+    <!-- Details Section (initially hidden) -->
+    <VBox fx:id="detailsSection" spacing="10" visible="false" managed="false">
+        <Label text="Prescription Details" styleClass="section-title"/>
+        
+        <GridPane vgap="10" hgap="10">
+            <Label text="Medicines:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextArea fx:id="medicinesArea" GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                     editable="false" prefRowCount="3"/>
+            
+            <Label text="Diagnosis:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea fx:id="diagnosisArea" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                     editable="false" prefRowCount="2"/>
+            
+            <Label text="Notes:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextArea fx:id="notesArea" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                     editable="false" prefRowCount="2"/>
+            
+            <Label text="Follow Up:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="followUpLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <Button text="Close Details" onAction="#handleCloseDetails" 
+                styleClass="secondary-button" alignment="CENTER_RIGHT"/>
+    </VBox>
+
+    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
+</VBox>

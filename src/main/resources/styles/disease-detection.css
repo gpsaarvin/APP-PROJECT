@@ -1,0 +1,61 @@
+.title-label {
+    -fx-font-size: 24px;
+    font-size: 24px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.section-label {
+    -fx-font-size: 18px;
+    font-size: 18px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.info-text {
+    -fx-font-size: 14px;
+    font-size: 14px;
+}
+
+.primary-button {
+    -fx-background-color: #4CAF50;
+    background-color: #4CAF50;
+    -fx-text-fill: white;
+    color: white;
+    -fx-padding: 8px 16px;
+    padding: 8px 16px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #45a049;
+    background-color: #45a049;
+}
+
+.secondary-button {
+    -fx-background-color: #f44336;
+    background-color: #f44336;
+    -fx-text-fill: white;
+    color: white;
+    -fx-padding: 8px 16px;
+    padding: 8px 16px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #da190b;
+    background-color: #da190b;
+}
+
+.table-row-cell:high-probability {
+    -fx-background-color: derive(#ff6b6b, 90%);
+    background-color: #ffe5e5;
+}
+
+.table-row-cell:medium-probability {
+    -fx-background-color: derive(#ffd93d, 90%);
+    background-color: #fff5d6;
+}
+
+.table-row-cell:low-probability {
+    -fx-background-color: derive(#6bcb77, 90%);
+    background-color: #e5f6e7;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LoginController">
+    <VBox alignment="CENTER" spacing="20.0" styleClass="root">
+        <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+        </padding>
+
+        <VBox styleClass="login-container" alignment="CENTER">
+            <Label text="Welcome Back" styleClass="welcome-text"/>
+            <Label text="Smart Medicare Login" styleClass="title-label"/>
+            
+            <VBox styleClass="field-container">
+                <Label text="Username"/>
+                <TextField fx:id="usernameField" promptText="Enter your username"/>
+                
+                <Label text="Password"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+            </VBox>
+
+            <VBox styleClass="button-container" alignment="CENTER">
+                <Button text="Login" onAction="#handleLogin" defaultButton="true"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Register" onAction="#handleRegisterNavigation" styleClass="secondary-button"/>
+                    <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="errorLabel" styleClass="error-label" visible="false"/>
+        </VBox>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@../styles/main.css"/>
+    </stylesheets>
+</StackPane>
+</VBox>

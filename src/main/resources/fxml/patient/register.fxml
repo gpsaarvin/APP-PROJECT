@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+
+<VBox alignment="CENTER" spacing="20" styleClass="register-container"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartmedicare.controllers.RegisterController">
+
+    <padding>
+        <Insets top="20" right="40" bottom="20" left="40"/>
+    </padding>
+
+    <stylesheets>
+        <URL value="@../../styles/main.css"/>
+    </stylesheets>
+
+    <VBox alignment="CENTER" spacing="10" styleClass="logo-container">
+        <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+            <Image url="@../../images/patient-icon.png"/>
+        </ImageView>
+        <Text styleClass="title-text">Patient Registration</Text>
+    </VBox>
+
+    <ScrollPane fitToWidth="true" styleClass="register-scroll">
+        <VBox spacing="15" styleClass="form-container" maxWidth="400">
+            <Label fx:id="errorLabel" styleClass="error-label" visible="false" managed="false"/>
+            
+            <!-- Common Fields -->
+            <VBox spacing="5">
+                <Label text="Username *" styleClass="field-label"/>
+                <TextField fx:id="usernameField" promptText="Choose a username" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Password *" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter password" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Confirm Password *" styleClass="field-label"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm password" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Full Name *" styleClass="field-label"/>
+                <TextField fx:id="nameField" promptText="Enter your full name" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Email *" styleClass="field-label"/>
+                <TextField fx:id="emailField" promptText="Enter your email" styleClass="input-field"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Contact Number *" styleClass="field-label"/>
+                <TextField fx:id="contactField" promptText="Enter contact number" styleClass="input-field"/>
+            </VBox>
+
+            <!-- Patient Specific Fields -->
+            <VBox fx:id="patientFields" spacing="10" visible="false" managed="false">
+                <VBox spacing="5">
+                    <Label text="Date of Birth *" styleClass="field-label"/>
+                    <DatePicker fx:id="dobPicker" promptText="Select date of birth" styleClass="input-field"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Gender *" styleClass="field-label"/>
+                    <ComboBox fx:id="genderComboBox" promptText="Select gender" styleClass="input-field" maxWidth="Infinity"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Blood Group *" styleClass="field-label"/>
+                    <ComboBox fx:id="bloodGroupComboBox" promptText="Select blood group" styleClass="input-field" maxWidth="Infinity"/>
+                </VBox>
+            </VBox>
+
+            <!-- Doctor Specific Fields -->
+            <VBox fx:id="doctorFields" spacing="10" visible="false" managed="false">
+                <VBox spacing="5">
+                    <Label text="Specialization *" styleClass="field-label"/>
+                    <TextField fx:id="specializationField" promptText="Enter your specialization" styleClass="input-field"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Schedule *" styleClass="field-label"/>
+                    <TextArea fx:id="scheduleArea" promptText="Enter your working hours" styleClass="input-field" wrapText="true"/>
+                </VBox>
+            </VBox>
+
+            <Button onAction="#handleRegister" text="Register" styleClass="primary-button" maxWidth="Infinity"/>
+            
+            <Separator/>
+            
+            <Button onAction="#handleBack" text="Back to Login" styleClass="secondary-button"/>
+        </VBox>
+    </ScrollPane>
+</VBox>

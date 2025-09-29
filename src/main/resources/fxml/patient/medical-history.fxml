@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" styleClass="content-pane"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.MedicalHistoryController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Medical History" styleClass="page-title"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="severityFilter" promptText="Filter by Severity"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Upload New Report" onAction="#handleUploadReport" styleClass="action-button"/>
+    </HBox>
+
+    <TableView fx:id="recordsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date"/>
+            <TableColumn fx:id="diagnosisColumn" text="Diagnosis"/>
+            <TableColumn fx:id="severityColumn" text="Severity"/>
+            <TableColumn fx:id="aiPredictionColumn" text="AI Prediction"/>
+            <TableColumn fx:id="doctorColumn" text="Doctor"/>
+            <TableColumn fx:id="actionsColumn" text="Actions"/>
+        </columns>
+    </TableView>
+
+    <!-- Details Section (initially hidden) -->
+    <VBox fx:id="detailsSection" spacing="10" visible="false" managed="false">
+        <Label text="Record Details" styleClass="section-title"/>
+        
+        <GridPane vgap="10" hgap="10">
+            <Label text="Symptoms:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextArea fx:id="symptomsArea" GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                     editable="false" prefRowCount="2"/>
+            
+            <Label text="Vital Signs:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextArea fx:id="vitalSignsArea" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                     editable="false" prefRowCount="2"/>
+            
+            <Label text="Treatment Plan:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextArea fx:id="treatmentPlanArea" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                     editable="false" prefRowCount="2"/>
+            
+            <Label text="Notes:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextArea fx:id="notesArea" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                     editable="false" prefRowCount="2"/>
+        </GridPane>
+
+        <Button text="Close Details" onAction="#handleCloseDetails" 
+                styleClass="secondary-button" alignment="CENTER_RIGHT"/>
+    </VBox>
+
+    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
+</VBox>

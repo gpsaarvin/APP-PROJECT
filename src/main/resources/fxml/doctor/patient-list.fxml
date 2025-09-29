@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" styleClass="content-pane"
+      stylesheets="@../../styles/doctor-dashboard.css"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.smartmedicare.controllers.doctor.PatientListController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Search and Filter Section -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search patients..."
+                  HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="filterComboBox" prefWidth="150"/>
+        <Button text="Search" onAction="#handleSearch"/>
+    </HBox>
+
+    <!-- Patients Table -->
+    <TableView fx:id="patientsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Patient Name"/>
+            <TableColumn fx:id="ageColumn" text="Age"/>
+            <TableColumn fx:id="genderColumn" text="Gender"/>
+            <TableColumn fx:id="lastVisitColumn" text="Last Visit"/>
+            <TableColumn fx:id="statusColumn" text="Status"/>
+            <TableColumn fx:id="actionsColumn" text="Actions"/>
+        </columns>
+    </TableView>
+
+    <!-- Pagination -->
+    <HBox spacing="10" alignment="CENTER">
+        <Pagination fx:id="pagination" maxPageIndicatorCount="5"/>
+    </HBox>
+
+    <!-- Status Label -->
+    <Label fx:id="statusLabel" styleClass="status-label" visible="false"/>
+</VBox>

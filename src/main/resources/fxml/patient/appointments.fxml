@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" styleClass="content-pane"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentsController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="My Appointments" styleClass="page-title"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="statusFilter" promptText="Filter by Status"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Book New Appointment" onAction="#handleNewAppointment" styleClass="action-button"/>
+    </HBox>
+
+    <TableView fx:id="appointmentsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date"/>
+            <TableColumn fx:id="timeColumn" text="Time"/>
+            <TableColumn fx:id="doctorColumn" text="Doctor"/>
+            <TableColumn fx:id="specializationColumn" text="Specialization"/>
+            <TableColumn fx:id="reasonColumn" text="Reason"/>
+            <TableColumn fx:id="statusColumn" text="Status"/>
+            <TableColumn fx:id="actionsColumn" text="Actions"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
+</VBox>
