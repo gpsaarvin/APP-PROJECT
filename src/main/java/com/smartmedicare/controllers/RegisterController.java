@@ -41,7 +41,7 @@ public class RegisterController {
     @FXML private TextField specializationField;
     @FXML private TextArea scheduleArea;
     
-    @FXML private Label errorLabel;
+    @FXML private Label messageLabel;
 
     private User.UserType userType;
 
@@ -87,7 +87,7 @@ public class RegisterController {
     @SuppressWarnings("unused")
     private void handleRegister() {
         try {
-            errorLabel.setVisible(false);
+            messageLabel.setVisible(false);
             if (!validateFields()) {
                 return;
             }
@@ -218,8 +218,8 @@ public class RegisterController {
     }
 
     private void showError(String message) {
-        errorLabel.setText(message);
-        errorLabel.setVisible(true);
-        errorLabel.getStyleClass().setAll("error-label");
+        messageLabel.setText(message);
+        messageLabel.setVisible(true);
+        messageLabel.getStyleClass().setAll("error-label");
     }
 }

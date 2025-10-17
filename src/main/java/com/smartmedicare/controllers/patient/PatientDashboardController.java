@@ -4,7 +4,7 @@ import com.smartmedicare.models.Patient;
 import com.smartmedicare.services.AuthenticationService;
 import com.smartmedicare.utils.DialogUtils;
 import java.io.IOException;
-import javafx.application.Platform;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +29,12 @@ public class PatientDashboardController {
         welcomeLabel.setText("Welcome, " + patient.getName());
     }
 
+    /**
+     * Handles user logout.
+     * Called by FXML when logout button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleLogout() {
         AuthenticationService.getInstance().logout();
         navigateToLogin();
@@ -40,27 +45,52 @@ public class PatientDashboardController {
         loadContent("appointment-booking");
     }
 
+    /**
+     * Shows appointments page.
+     * Called by FXML when appointments button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void showAppointments() {
         loadContent("appointments");
     }
 
+    /**
+     * Shows medical history page.
+     * Called by FXML when medical history button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void showMedicalHistory() {
         loadContent("medical-history");
     }
 
+    /**
+     * Shows prescriptions page.
+     * Called by FXML when prescriptions button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void showPrescriptions() {
         loadContent("prescriptions");
     }
 
+    /**
+     * Shows disease analysis page.
+     * Called by FXML when disease analysis button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void showDiseaseAnalysis() {
         loadContent("disease-analysis");
     }
 
+    /**
+     * Shows profile page.
+     * Called by FXML when profile button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void showProfile() {
         loadContent("profile");
     }

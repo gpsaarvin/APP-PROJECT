@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.ScheduleController">
+    
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1000">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📅 My Schedule" styleClass="title-label"/>
+                    <Label text="View and manage your working schedule" styleClass="subtitle-label"/>
+                </VBox>
+
+                <!-- Schedule Information -->
+                <VBox styleClass="card" spacing="20" maxWidth="800">
+                    <padding>
+                        <Insets top="30" right="30" bottom="30" left="30"/>
+                    </padding>
+                    
+                    <Label text="Current Schedule" styleClass="section-title"/>
+                    <TextArea fx:id="scheduleDisplay" styleClass="form-field" prefRowCount="6" 
+                             editable="false" wrapText="true"/>
+                    
+                    <HBox spacing="15" alignment="CENTER">
+                        <Button text="📝 Edit Schedule" onAction="#editSchedule" styleClass="primary-button" 
+                               prefWidth="140" prefHeight="40"/>
+                        <Button text="🔄 Refresh" onAction="#refreshSchedule" styleClass="secondary-button" 
+                               prefWidth="100" prefHeight="40"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Today's Appointments -->
+                <VBox styleClass="card" spacing="20" maxWidth="950">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+                    
+                    <Label text="Today's Appointments" styleClass="section-title"/>
+                    
+                    <TableView fx:id="appointmentsTable" styleClass="table-view" prefHeight="300">
+                        <columns>
+                            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100"/>
+                            <TableColumn fx:id="patientColumn" text="Patient" prefWidth="200"/>
+                            <TableColumn fx:id="reasonColumn" text="Reason" prefWidth="250"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

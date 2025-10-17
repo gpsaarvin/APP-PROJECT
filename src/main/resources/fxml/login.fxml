@@ -2,42 +2,56 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import java.net.URL?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LoginController">
-    <VBox alignment="CENTER" spacing="20.0" styleClass="root">
-        <padding>
-            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
-        </padding>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LoginController" 
+           styleClass="login-page" stylesheets="@../css/styles.css">
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox alignment="CENTER" spacing="25" styleClass="card" maxWidth="450" maxHeight="600">
+                <padding>
+                    <Insets top="40" bottom="40" left="50" right="50"/>
+                </padding>
 
-        <VBox styleClass="login-container" alignment="CENTER">
-            <Label text="Welcome Back" styleClass="welcome-text"/>
-            <Label text="Smart Medicare Login" styleClass="title-label"/>
-            
-            <VBox styleClass="field-container">
-                <Label text="Username"/>
-                <TextField fx:id="usernameField" promptText="Enter your username"/>
-                
-                <Label text="Password"/>
-                <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="🏥 Smart Medicare" styleClass="title-label"/>
+                    <Label fx:id="userTypeLabel" text="Patient Login" styleClass="subtitle-label"/>
+                    <Label text="Welcome back! Please sign in to continue." styleClass="subtitle-label"/>
+                </VBox>
+
+                <!-- Form Section -->
+                <VBox spacing="20" alignment="CENTER" prefWidth="350" maxWidth="350">
+                    <VBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="Username" styleClass="subtitle-label"/>
+                        <TextField fx:id="usernameField" promptText="Enter your username" 
+                                  styleClass="text-field" prefHeight="45" maxWidth="350"/>
+                    </VBox>
+                    
+                    <VBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="Password" styleClass="subtitle-label"/>
+                        <PasswordField fx:id="passwordField" promptText="Enter your password" 
+                                      styleClass="password-field" prefHeight="45" maxWidth="350"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Button Section -->
+                <VBox spacing="15" alignment="CENTER" prefWidth="350" maxWidth="350">
+                    <Button text="Login" onAction="#handleLogin" styleClass="login-button" 
+                           defaultButton="true" prefWidth="350" prefHeight="50"/>
+                    
+                    <HBox spacing="15" alignment="CENTER">
+                        <Hyperlink text="New patient? Register here" onAction="#handleRegisterNavigation" 
+                                  styleClass="subtitle-label"/>
+                    </HBox>
+                    
+                    <Button text="Back to Main Menu" onAction="#handleBack" styleClass="secondary-button" 
+                           prefWidth="200" prefHeight="40"/>
+                </VBox>
+
+                <!-- Error Message -->
+                <Label fx:id="errorLabel" styleClass="error-label" visible="false" wrapText="true" 
+                       maxWidth="350" textAlignment="CENTER"/>
             </VBox>
-
-            <VBox styleClass="button-container" alignment="CENTER">
-                <Button text="Login" onAction="#handleLogin" defaultButton="true"/>
-                <HBox spacing="10" alignment="CENTER">
-                    <Button text="Register" onAction="#handleRegisterNavigation" styleClass="secondary-button"/>
-                    <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
-                </HBox>
-            </VBox>
-
-            <Label fx:id="errorLabel" styleClass="error-label" visible="false"/>
-        </VBox>
-    </VBox>
-
-    <stylesheets>
-        <URL value="@../styles/main.css"/>
-    </stylesheets>
-</StackPane>
-</VBox>
+        </StackPane>
+    </center>
+</BorderPane>

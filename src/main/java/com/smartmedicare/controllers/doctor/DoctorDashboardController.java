@@ -91,7 +91,14 @@ public class DoctorDashboardController {
 
     @FXML
     private void showAppointments() {
-        loadContent("appointments");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/doctor/appointment-management.fxml"));
+            Parent content = loader.load();
+            contentArea.getChildren().clear();
+            contentArea.getChildren().add(content);
+        } catch (IOException e) {
+            showError("Error loading appointments view", "Failed to load appointments", e.getMessage());
+        }
     }
 
     @FXML

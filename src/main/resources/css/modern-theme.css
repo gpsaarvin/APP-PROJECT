@@ -1,0 +1,234 @@
+/* ===== SMART MEDICARE - MODERN THEME ENHANCEMENTS ===== */
+
+/* Animations and Transitions */
+.primary-button, .secondary-button, .login-button, .action-button {
+    -fx-transition: all 0.3s ease;
+}
+
+/* Glass morphism effect */
+.glass-card {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.18);
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 25, 0, 0, 8);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Medical Icons Enhancement */
+.medical-icon {
+    -fx-font-size: 48px;
+    font-size: 48px;
+    -fx-text-fill: #2E86AB;
+    color: #2E86AB;
+    -fx-effect: dropshadow(gaussian, rgba(46,134,171,0.3), 5, 0, 0, 2);
+}
+
+/* Status Indicators */
+.status-online {
+    -fx-background-color: #48BB78;
+    background-color: #48BB78;
+    -fx-background-radius: 50;
+    border-radius: 50%;
+    -fx-min-width: 12;
+    -fx-min-height: 12;
+    -fx-max-width: 12;
+    -fx-max-height: 12;
+}
+
+.status-busy {
+    -fx-background-color: #F56565;
+    background-color: #F56565;
+    -fx-background-radius: 50;
+    border-radius: 50%;
+    -fx-min-width: 12;
+    -fx-min-height: 12;
+    -fx-max-width: 12;
+    -fx-max-height: 12;
+}
+
+.status-away {
+    -fx-background-color: #ED8936;
+    background-color: #ED8936;
+    -fx-background-radius: 50;
+    border-radius: 50%;
+    -fx-min-width: 12;
+    -fx-min-height: 12;
+    -fx-max-width: 12;
+    -fx-max-height: 12;
+}
+
+/* Progress Bars */
+.progress-bar {
+    -fx-background-color: #E2E8F0;
+    -fx-background-radius: 10;
+    border-radius: 10px;
+    background-color: #E2E8F0;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(135deg, #2E86AB 0%, #4DA6D9 100%);
+    -fx-background-radius: 10;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2E86AB 0%, #4DA6D9 100%);
+}
+
+/* Table Enhancements */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 15;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 5);
+}
+
+.table-view .column-header {
+    -fx-background-color: #2E86AB;
+    -fx-text-fill: white;
+    background-color: #2E86AB;
+    color: white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #F7FAFC;
+    background-color: #F7FAFC;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: white;
+    background-color: white;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(46,134,171,0.2);
+    background-color: rgba(46,134,171,0.2);
+}
+
+/* Chart Enhancements */
+.chart {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 15;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 20, 0, 0, 5);
+    -fx-padding: 20;
+    padding: 20px;
+}
+
+/* Tooltip Enhancements */
+.tooltip {
+    -fx-background-color: rgba(45, 55, 72, 0.95);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8;
+    background-color: rgba(45, 55, 72, 0.95);
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+    -fx-font-size: 12px;
+    font-size: 12px;
+}
+
+/* Loading Spinner */
+.loading-indicator {
+    -fx-progress-color: #2E86AB;
+    -fx-background-color: transparent;
+    background-color: transparent;
+}
+
+/* Medical Card Styles */
+.patient-card {
+    -fx-background-color: rgba(255, 255, 255, 0.98);
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 3);
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 15px;
+    padding: 20px;
+    -fx-border-color: rgba(46,134,171,0.1);
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    border: 1px solid rgba(46,134,171,0.1);
+}
+
+.doctor-card {
+    -fx-background-color: linear-gradient(135deg, rgba(46,134,171,0.05) 0%, rgba(77,166,217,0.05) 100%);
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(46,134,171,0.15), 15, 0, 0, 3);
+    background: linear-gradient(135deg, rgba(46,134,171,0.05) 0%, rgba(77,166,217,0.05) 100%);
+    border-radius: 15px;
+    padding: 20px;
+    -fx-border-color: #2E86AB;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    border: 2px solid #2E86AB;
+}
+
+/* Emergency Alert */
+.emergency-alert {
+    -fx-background-color: linear-gradient(135deg, #FC8181 0%, #F56565 100%);
+    -fx-text-fill: white;
+    -fx-padding: 15;
+    -fx-background-radius: 12;
+    background: linear-gradient(135deg, #FC8181 0%, #F56565 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(245,101,101,0.4), 10, 0, 0, 3);
+}
+
+/* Priority Labels */
+.priority-high {
+    -fx-background-color: #F56565;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-background-radius: 20;
+    background-color: #F56565;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    -fx-font-size: 11px;
+    font-size: 11px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.priority-medium {
+    -fx-background-color: #ED8936;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-background-radius: 20;
+    background-color: #ED8936;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    -fx-font-size: 11px;
+    font-size: 11px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.priority-low {
+    -fx-background-color: #48BB78;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-background-radius: 20;
+    background-color: #48BB78;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    -fx-font-size: 11px;
+    font-size: 11px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}

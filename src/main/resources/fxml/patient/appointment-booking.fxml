@@ -3,39 +3,77 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20" styleClass="content-pane"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentBookingController">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentBookingController">
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="800">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
 
-    <Label text="Book an Appointment" styleClass="page-title"/>
+                <!-- Header -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📅 Book an Appointment" styleClass="title-label"/>
+                    <Label text="Schedule your visit with our medical professionals" styleClass="subtitle-label"/>
+                </VBox>
 
-    <GridPane vgap="10" hgap="10">
-        <Label text="Specialization:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="specializationComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1"
-                  onAction="#handleSpecializationChange"/>
+                <!-- Form Card -->
+                <VBox styleClass="card" spacing="25" maxWidth="600" alignment="CENTER" prefWidth="600">
+                    <padding>
+                        <Insets top="30" right="40" bottom="30" left="40"/>
+                    </padding>
+                    
+                    <GridPane vgap="20" hgap="20" alignment="CENTER" maxWidth="520">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="120" prefWidth="120"/>
+                            <ColumnConstraints minWidth="300" prefWidth="350"/>
+                        </columnConstraints>
 
-        <Label text="Doctor:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="doctorComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"
-                  onAction="#handleDoctorChange"/>
+                        <Label text="Specialization:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                               styleClass="subtitle-label" GridPane.valignment="CENTER"/>
+                        <ComboBox fx:id="specializationComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                  onAction="#handleSpecializationChange" styleClass="combo-box" 
+                                  prefWidth="350" prefHeight="40" promptText="Select specialization"/>
 
-        <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"
-                    onAction="#handleDateChange"/>
+                        <Label text="Doctor:" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                               styleClass="subtitle-label" GridPane.valignment="CENTER"/>
+                        <ComboBox fx:id="doctorComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                  onAction="#handleDoctorChange" styleClass="combo-box" 
+                                  prefWidth="350" prefHeight="40" promptText="Select doctor"/>
 
-        <Label text="Time Slot:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="timeSlotComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                               styleClass="subtitle-label" GridPane.valignment="CENTER"/>
+                        <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                    onAction="#handleDateChange" styleClass="combo-box" 
+                                    prefWidth="350" prefHeight="40" promptText="Select date"/>
 
-        <Label text="Reason:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextArea fx:id="reasonTextArea" GridPane.rowIndex="4" GridPane.columnIndex="1"
-                  prefRowCount="3"/>
-    </GridPane>
+                        <Label text="Time Slot:" GridPane.rowIndex="3" GridPane.columnIndex="0" 
+                               styleClass="subtitle-label" GridPane.valignment="CENTER"/>
+                        <ComboBox fx:id="timeSlotComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                                  styleClass="combo-box" prefWidth="350" prefHeight="40" 
+                                  promptText="Select time slot"/>
 
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Clear" onAction="#handleClear" styleClass="secondary-button"/>
-        <Button text="Book Appointment" onAction="#handleBookAppointment" styleClass="action-button"/>
-    </HBox>
+                        <Label text="Reason for Visit:" GridPane.rowIndex="4" GridPane.columnIndex="0" 
+                               styleClass="subtitle-label" GridPane.valignment="TOP"/>
+                        <TextArea fx:id="reasonTextArea" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                                  prefRowCount="4" prefWidth="350" styleClass="text-area"
+                                  promptText="Describe your symptoms or reason for the appointment..."/>
+                    </GridPane>
 
-    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
-</VBox>
+                    <!-- Action Buttons -->
+                    <HBox spacing="15" alignment="CENTER" maxWidth="400">
+                        <Button text="Clear Form" onAction="#handleClear" styleClass="secondary-button" 
+                               prefWidth="120" prefHeight="45"/>
+                        <Button text="Book Appointment" onAction="#handleBookAppointment" styleClass="primary-button" 
+                               prefWidth="180" prefHeight="45"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Message Display -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="600" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

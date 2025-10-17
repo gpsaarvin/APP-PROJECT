@@ -3,18 +3,77 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LandingController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.LandingController" 
+           styleClass="landing-root" stylesheets="@../css/styles.css">
     <center>
-        <VBox alignment="CENTER" spacing="20">
-            <padding>
-                <Insets top="40" bottom="40" left="40" right="40"/>
-            </padding>
-            <Label text="Smart Medicare" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-            <Label text="Welcome! Choose your portal."/>
-            <HBox spacing="20" alignment="CENTER">
-                <Button text="Patient Login" onAction="#handlePatientLogin"/>
-                <Button text="Doctor Login" onAction="#handleDoctorLogin"/>
-            </HBox>
-        </VBox>
+        <StackPane>
+            <VBox alignment="CENTER" spacing="40" maxWidth="800">
+                <padding>
+                    <Insets top="80" bottom="80" left="60" right="60"/>
+                </padding>
+                
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="20">
+                    <Label text="🏥 Smart Medicare" styleClass="hero-title"/>
+                    <Label text="Your Digital Healthcare Companion" styleClass="hero-subtitle"/>
+                    <Label text="Connecting Patients and Doctors with Advanced Technology" 
+                           styleClass="subtitle-label" wrapText="true" textAlignment="CENTER" maxWidth="600"/>
+                </VBox>
+                
+                <!-- Action Buttons -->
+                <HBox spacing="40" alignment="CENTER">
+                    <VBox alignment="CENTER" spacing="15" maxWidth="280">
+                        <Button text="👨‍⚕️ Doctor Portal" onAction="#handleDoctorLogin" 
+                               styleClass="primary-button" prefWidth="250" prefHeight="70" 
+                               wrapText="true"/>
+                        <Label text="Access medical records and patient data" 
+                               styleClass="subtitle-label" wrapText="true" textAlignment="CENTER" 
+                               maxWidth="280"/>
+                    </VBox>
+                    
+                    <VBox alignment="CENTER" spacing="15" maxWidth="280">
+                        <Button text="👤 Patient Portal" onAction="#handlePatientLogin" 
+                               styleClass="secondary-button" prefWidth="250" prefHeight="70" 
+                               wrapText="true"/>
+                        <Label text="View your health information and appointments" 
+                               styleClass="subtitle-label" wrapText="true" textAlignment="CENTER" 
+                               maxWidth="280"/>
+                    </VBox>
+                </HBox>
+                
+                <!-- Feature Cards -->
+                <HBox spacing="30" alignment="CENTER">
+                    <VBox styleClass="card" spacing="15" alignment="CENTER" prefWidth="220" maxWidth="220">
+                        <padding>
+                            <Insets top="25" bottom="25" left="20" right="20"/>
+                        </padding>
+                        <Label text="🔒" styleClass="medical-icon"/>
+                        <Label text="Secure" styleClass="card-title"/>
+                        <Label text="HIPAA compliant data protection for all your medical information" 
+                               wrapText="true" textAlignment="CENTER"/>
+                    </VBox>
+                    
+                    <VBox styleClass="card" spacing="15" alignment="CENTER" prefWidth="220" maxWidth="220">
+                        <padding>
+                            <Insets top="25" bottom="25" left="20" right="20"/>
+                        </padding>
+                        <Label text="🤖" styleClass="medical-icon"/>
+                        <Label text="AI-Powered" styleClass="card-title"/>
+                        <Label text="Machine learning algorithms for better diagnosis and insights" 
+                               wrapText="true" textAlignment="CENTER"/>
+                    </VBox>
+                    
+                    <VBox styleClass="card" spacing="15" alignment="CENTER" prefWidth="220" maxWidth="220">
+                        <padding>
+                            <Insets top="25" bottom="25" left="20" right="20"/>
+                        </padding>
+                        <Label text="⚡" styleClass="medical-icon"/>
+                        <Label text="Fast" styleClass="card-title"/>
+                        <Label text="Real-time access to all your medical data and appointments" 
+                               wrapText="true" textAlignment="CENTER"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </StackPane>
     </center>
 </BorderPane>

@@ -67,6 +67,11 @@ public class PatientDAO extends BaseDAO<Patient> {
         return doc != null ? documentToEntity(doc) : null;
     }
 
+    public Patient findById(ObjectId id) {
+        Document doc = collection.find(Filters.eq("_id", id)).first();
+        return doc != null ? documentToEntity(doc) : null;
+    }
+
     public List<Patient> findByDoctor(ObjectId doctorId) {
         // First get patient IDs from appointments
         List<ObjectId> patientIds = DatabaseService.getInstance().getDatabase()

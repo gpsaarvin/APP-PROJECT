@@ -3,73 +3,168 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20" styleClass="content-panel" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.smartmedicare.controllers.patient.ProfileController">
+<BorderPane styleClass="profile-container" stylesheets="@../../css/profile.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.ProfileController">
     
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
-
-    <Label text="Patient Profile" styleClass="page-title"/>
-    
-    <!-- Personal Information Section -->
-    <GridPane vgap="10" hgap="10" styleClass="form-grid">
-        <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-        
-        <Label text="Date of Birth:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-        <DatePicker fx:id="dobPicker" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        
-        <Label text="Gender:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="genderCombo" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-        
-        <Label text="Blood Group:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="bloodGroupCombo" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-        
-        <Label text="Phone:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextField fx:id="phoneField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-        
-        <Label text="Email:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-        <TextField fx:id="emailField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-        
-        <Label text="Address:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-        <TextArea fx:id="addressArea" prefRowCount="3" wrapText="true"
-                  GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-    </GridPane>
-    
-    <!-- Emergency Contact Section -->
-    <TitledPane text="Emergency Contact">
-        <GridPane vgap="10" hgap="10" styleClass="form-grid">
-            <Label text="Contact Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextField fx:id="emergencyNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" spacing="5" prefWidth="220">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
             
-            <Label text="Relationship:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextField fx:id="relationshipField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-            
-            <Label text="Contact Number:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextField fx:id="emergencyPhoneField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-        </GridPane>
-    </TitledPane>
-    
-    <!-- Medical Information Section -->
-    <TitledPane text="Medical Information">
-        <VBox spacing="10">
-            <Label text="Allergies:"/>
-            <TextArea fx:id="allergiesArea" prefRowCount="2" wrapText="true"/>
-            
-            <Label text="Current Medications:"/>
-            <TextArea fx:id="medicationsArea" prefRowCount="2" wrapText="true"/>
-            
-            <Label text="Medical Conditions:"/>
-            <TextArea fx:id="conditionsArea" prefRowCount="2" wrapText="true"/>
+            <!-- Navigation Items -->
+            <Button text="📅 My Schedule" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📋 My Health Records" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="� My Health Records" styleClass="nav-button active" prefWidth="180" prefHeight="40"/>
+            <Button text="💊 Prescriptions" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📊 Health Metrics" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="🩺 Health Metrics" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📋 Condition History" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
         </VBox>
-    </TitledPane>
-    
-    <!-- Action Buttons -->
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Cancel" onAction="#handleCancel" styleClass="secondary-button"/>
-        <Button text="Save Changes" onAction="#handleSave" styleClass="primary-button"/>
-    </HBox>
-    
-    <Label fx:id="messageLabel" styleClass="message-label" wrapText="true"/>
-</VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane styleClass="content-scroll" fitToWidth="true">
+            <VBox styleClass="content-area" spacing="0">
+                <!-- Header -->
+                <HBox styleClass="profile-header" alignment="CENTER_LEFT" spacing="15">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30"/>
+                    </padding>
+                    <Region styleClass="profile-icon"/>
+                    <VBox spacing="5">
+                        <Label text="Patient Profile" styleClass="profile-title"/>
+                        <Label text="Manage your personal and health information" styleClass="profile-subtitle"/>
+                    </VBox>
+                </HBox>
+                
+                <!-- Profile Form -->
+                <HBox styleClass="profile-form" spacing="40">
+                    <padding>
+                        <Insets top="30" right="30" bottom="30" left="30"/>
+                    </padding>
+                    
+                    <!-- Left Column -->
+                    <VBox spacing="25" prefWidth="400">
+                        <!-- Full Name -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Full Name" styleClass="field-label" prefWidth="120"/>
+                            <TextField fx:id="nameField" styleClass="profile-field" prefHeight="45" prefWidth="250"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Date of Birth -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Email" styleClass="field-label" prefWidth="120"/>
+                            <DatePicker fx:id="dobPicker" styleClass="profile-field" prefHeight="45" prefWidth="250"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Account Information Title -->
+                        <Label text="Account Information" styleClass="section-header"/>
+                        
+                        <!-- Email -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Email" styleClass="field-label" prefWidth="120"/>
+                            <TextField fx:id="emailField" styleClass="profile-field" prefHeight="45" prefWidth="250"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Contact -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Contact" styleClass="field-label" prefWidth="120"/>
+                            <TextField fx:id="phoneField" styleClass="profile-field" prefHeight="45" prefWidth="250"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Medical Information Title -->
+                        <Label text="Medical Information" styleClass="section-header"/>
+                        
+                        <!-- Username -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Username" styleClass="field-label" prefWidth="120"/>
+                            <TextField styleClass="profile-field" prefHeight="45" prefWidth="250" promptText="AlexT85"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Address -->
+                        <HBox spacing="15" alignment="TOP_LEFT">
+                            <Label text="Address" styleClass="field-label" prefWidth="120"/>
+                            <TextArea fx:id="addressArea" styleClass="profile-field" prefRowCount="3" prefWidth="250"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                        
+                        <!-- Assigned Doctor -->
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <Label text="Assigned" styleClass="field-label" prefWidth="120"/>
+                            <TextField styleClass="profile-field" prefHeight="45" prefWidth="250" promptText="Dr Amelia Jones"/>
+                            <Button styleClass="edit-button"/>
+                        </HBox>
+                    </VBox>
+                    
+                    <!-- Right Column -->
+                    <VBox spacing="25" prefWidth="350">
+                        <!-- Emergency Contact Title -->
+                        <Label text="Emergency Contact" styleClass="section-header"/>
+                        
+                        <!-- Emergency Contact Phone -->
+                        <TextField fx:id="emergencyPhoneField" styleClass="profile-field" prefHeight="45" promptText="Emergency Contact Phone"/>
+                        
+                        <!-- Blood Type -->
+                        <VBox spacing="10">
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Blood Type:" styleClass="field-label"/>
+                                <Button text="Change Password" styleClass="link-button"/>
+                            </HBox>
+                            <ComboBox fx:id="bloodGroupCombo" styleClass="profile-field" prefHeight="45" promptText="O+"/>
+                        </VBox>
+                        
+                        <!-- Allergies -->
+                        <VBox spacing="10" alignment="TOP_LEFT">
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Allergies" styleClass="field-label"/>
+                                <Button text="View Doctor Profile" styleClass="link-button"/>
+                            </HBox>
+                            <TextArea fx:id="allergiesArea" styleClass="profile-field" prefRowCount="2" promptText="Penicillin, Dust"/>
+                        </VBox>
+                        
+                        <!-- Primary Care -->
+                        <VBox spacing="10">
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="Primary Care" styleClass="field-label"/>
+                                <Button text="Allergies" styleClass="link-button"/>
+                                <Button text="Update Doctor Profile" styleClass="link-button"/>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Insurance Provider -->
+                        <VBox spacing="10">
+                            <Label text="Insurance Provider" styleClass="field-label"/>
+                            <TextField styleClass="profile-field" prefHeight="45" promptText="Blue Rita Cross/Shield"/>
+                        </VBox>
+                        
+                        <!-- Emergency Contact Name -->
+                        <VBox spacing="10">
+                            <Label text="Name: Sarah L. Thompson (Wife)" styleClass="field-label"/>
+                        </VBox>
+                    </VBox>
+                </HBox>
+                
+                <!-- Save Button -->
+                <HBox alignment="CENTER" spacing="20">
+                    <padding>
+                        <Insets top="20" bottom="30"/>
+                    </padding>
+                    <Button text="Save Changes" onAction="#handleSave" styleClass="save-button" 
+                           prefWidth="140" prefHeight="45"/>
+                </HBox>
+                
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="message-label" visible="false" wrapText="true" 
+                       textAlignment="CENTER"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

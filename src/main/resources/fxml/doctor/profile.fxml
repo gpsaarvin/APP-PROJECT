@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="profile-container" stylesheets="@../../css/profile.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.DoctorProfileController">
+    
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" spacing="5" prefWidth="220">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <!-- Navigation Items -->
+            <Button text="📅 My Schedule" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="👤 My Schedule" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📋 Patient Appointments" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📄 Patient Records" styleClass="nav-button active" prefWidth="180" prefHeight="40"/>
+            <Button text="💊 Prescriptions" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="🔬 Disease Detection" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+            <Button text="📊 Disease Analysis" styleClass="nav-button" prefWidth="180" prefHeight="40"/>
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <ScrollPane styleClass="content-scroll" fitToWidth="true">
+            <VBox styleClass="content-area" spacing="0">
+                <!-- Header -->
+                <HBox styleClass="profile-header" alignment="CENTER_LEFT" spacing="15">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30"/>
+                    </padding>
+                    <Region styleClass="profile-icon"/>
+                    <VBox spacing="5">
+                        <Label text="Doctor Profile" styleClass="profile-title"/>
+                        <Label text="Manage your personal and professional information" styleClass="profile-subtitle"/>
+                    </VBox>
+                </HBox>
+                
+                <!-- Profile Form -->
+                <VBox styleClass="profile-form" spacing="25">
+                    <padding>
+                        <Insets top="30" right="30" bottom="30" left="30"/>
+                    </padding>
+                    
+                    <!-- Personal Information Grid -->
+                    <GridPane styleClass="form-grid" hgap="25" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="140"/>
+                            <ColumnConstraints hgrow="ALWAYS" prefWidth="300"/>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="20"/>
+                        </columnConstraints>
+                        
+                        <!-- Full Name -->
+                        <Label text="Full Name" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="nameField" styleClass="profile-field" prefHeight="45" 
+                                 GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        
+                        <!-- Email -->
+                        <Label text="Email" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="emailField" styleClass="profile-field" prefHeight="45"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                    </GridPane>
+                    
+                    <!-- Personal Information Title -->
+                    <Label text="Personal Information" styleClass="section-header"/>
+                    
+                    <!-- Personal Info Grid -->
+                    <GridPane styleClass="form-grid" hgap="25" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="140"/>
+                            <ColumnConstraints hgrow="ALWAYS" prefWidth="300"/>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="20"/>
+                        </columnConstraints>
+                        
+                        <!-- Username -->
+                        <Label text="Username" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="usernameField" styleClass="profile-field" prefHeight="45" editable="false"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        
+                        <!-- Contact -->
+                        <Label text="Contact" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="contactField" styleClass="profile-field" prefHeight="45"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                    </GridPane>
+                    
+                    <!-- Professional Information Title -->
+                    <Label text="Professional Information" styleClass="section-header"/>
+                    
+                    <!-- Professional Info Grid -->
+                    <GridPane styleClass="form-grid" hgap="25" vgap="20">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="140"/>
+                            <ColumnConstraints hgrow="ALWAYS" prefWidth="300"/>
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="20"/>
+                        </columnConstraints>
+                        
+                        <!-- Medical License -->
+                        <Label text="Medical License" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField styleClass="profile-field" prefHeight="45" promptText="ML1245"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        
+                        <!-- Specialty -->
+                        <Label text="Specialty" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="specializationComboBox" styleClass="profile-field" prefHeight="45" prefWidth="300"
+                                GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        
+                        <!-- Clinic/Hospital -->
+                        <Label text="Clinic/Hospital" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField styleClass="profile-field" prefHeight="45" promptText="City General Hospital"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Button styleClass="edit-button" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                    </GridPane>
+                    
+                    <!-- Save Button -->
+                    <HBox alignment="CENTER" spacing="20">
+                        <padding>
+                            <Insets top="20"/>
+                        </padding>
+                        <Button text="Save Changes" onAction="#updateProfile" styleClass="save-button" 
+                               prefWidth="140" prefHeight="45"/>
+                    </HBox>
+                    
+                    <!-- Message Label -->
+                    <Label fx:id="messageLabel" styleClass="message-label" visible="false" wrapText="true" 
+                           textAlignment="CENTER"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

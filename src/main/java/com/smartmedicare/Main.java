@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoDatabase;
+import com.smartmedicare.services.DataInitializationService;
 import com.smartmedicare.services.DatabaseService;
 import com.smartmedicare.utils.DialogUtils;
 
@@ -54,6 +55,10 @@ public class Main extends Application {
             database.runCommand(new org.bson.Document("ping", 1)
                 .append("maxTimeMS", 5000));  // 5 second timeout
             System.out.println("Successfully connected to MongoDB");
+
+            // Initialize sample data
+            DataInitializationService dataInit = new DataInitializationService();
+            dataInit.initializeSampleData();
 
         } catch (MongoException e) {
             String errorMessage = "Failed to connect to database. Please ensure MongoDB is running on localhost:27017";

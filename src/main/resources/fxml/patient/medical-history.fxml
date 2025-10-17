@@ -3,52 +3,105 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20" styleClass="content-pane"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.MedicalHistoryController">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml">
+    
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1200">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
 
-    <Label text="Medical History" styleClass="page-title"/>
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📊 Medical History" styleClass="title-label"/>
+                    <Label text="View your complete medical records and history" styleClass="subtitle-label"/>
+                </VBox>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <ComboBox fx:id="severityFilter" promptText="Filter by Severity"/>
-        <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Upload New Report" onAction="#handleUploadReport" styleClass="action-button"/>
-    </HBox>
+                <!-- Controls Section -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="900">
+                    <Label text="Filter by Type:" styleClass="subtitle-label"/>
+                    <ComboBox fx:id="typeFilterComboBox" styleClass="combo-box" 
+                             prefWidth="180" prefHeight="40" onAction="#handleTypeFilter"/>
+                    <Label text="Severity:" styleClass="subtitle-label"/>
+                    <ComboBox fx:id="severityFilter" styleClass="combo-box" 
+                             prefWidth="150" prefHeight="40" onAction="#handleSeverityFilter"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="📋 Add Record" onAction="#addMedicalRecord" styleClass="primary-button" 
+                           prefWidth="140" prefHeight="40"/>
+                    <Button text="🔄 Refresh" onAction="#refreshHistory" styleClass="secondary-button" 
+                           prefWidth="100" prefHeight="40"/>
+                </HBox>
 
-    <TableView fx:id="recordsTable" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="dateColumn" text="Date"/>
-            <TableColumn fx:id="diagnosisColumn" text="Diagnosis"/>
-            <TableColumn fx:id="severityColumn" text="Severity"/>
-            <TableColumn fx:id="aiPredictionColumn" text="AI Prediction"/>
-            <TableColumn fx:id="doctorColumn" text="Doctor"/>
-            <TableColumn fx:id="actionsColumn" text="Actions"/>
-        </columns>
-    </TableView>
+                <!-- Medical Records Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="1150" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="recordsTable" styleClass="table-view" VBox.vgrow="ALWAYS" 
+                              minHeight="400" prefHeight="500">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                            <TableColumn fx:id="typeColumn" text="Record Type" prefWidth="140"/>
+                            <TableColumn fx:id="diagnosisColumn" text="Diagnosis/Condition" prefWidth="220"/>
+                            <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="160"/>
+                            <TableColumn fx:id="severityColumn" text="Severity" prefWidth="100"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
 
-    <!-- Details Section (initially hidden) -->
-    <VBox fx:id="detailsSection" spacing="10" visible="false" managed="false">
-        <Label text="Record Details" styleClass="section-title"/>
-        
-        <GridPane vgap="10" hgap="10">
-            <Label text="Symptoms:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextArea fx:id="symptomsArea" GridPane.rowIndex="0" GridPane.columnIndex="1" 
-                     editable="false" prefRowCount="2"/>
-            
-            <Label text="Vital Signs:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="vitalSignsArea" GridPane.rowIndex="1" GridPane.columnIndex="1"
-                     editable="false" prefRowCount="2"/>
-            
-            <Label text="Treatment Plan:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextArea fx:id="treatmentPlanArea" GridPane.rowIndex="2" GridPane.columnIndex="1"
-                     editable="false" prefRowCount="2"/>
-            
-            <Label text="Notes:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-            <TextArea fx:id="notesArea" GridPane.rowIndex="3" GridPane.columnIndex="1"
-                     editable="false" prefRowCount="2"/>
-        </GridPane>
+                <!-- Action Buttons -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="700">
+                    <Button fx:id="viewDetailsButton" text="👁️ View Details" onAction="#viewRecordDetails" 
+                           styleClass="primary-button" prefWidth="140" prefHeight="45" disable="true"/>
+                    <Button fx:id="downloadButton" text="💾 Download" onAction="#downloadRecord" 
+                           styleClass="secondary-button" prefWidth="120" prefHeight="45" disable="true"/>
+                    <Button fx:id="shareButton" text="📤 Share" onAction="#shareRecord" 
+                           styleClass="secondary-button" prefWidth="100" prefHeight="45" disable="true"/>
+                    <Button fx:id="printButton" text="🖨️ Print" onAction="#printRecord" 
+                           styleClass="secondary-button" prefWidth="100" prefHeight="45" disable="true"/>
+                </HBox>
+
+                <!-- Statistics Cards -->
+                <HBox spacing="25" alignment="CENTER" maxWidth="800">
+                    <VBox styleClass="stats-card" spacing="10" alignment="CENTER" prefWidth="180">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                        <Label text="📊" styleClass="stats-icon"/>
+                        <Label fx:id="totalRecordsLabel" text="0" styleClass="stats-number"/>
+                        <Label text="Total Records" styleClass="stats-label"/>
+                    </VBox>
+                    
+                    <VBox styleClass="stats-card" spacing="10" alignment="CENTER" prefWidth="180">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                        <Label text="📅" styleClass="stats-icon"/>
+                        <Label fx:id="lastVisitLabel" text="Never" styleClass="stats-number"/>
+                        <Label text="Last Visit" styleClass="stats-label"/>
+                    </VBox>
+                    
+                    <VBox styleClass="stats-card" spacing="10" alignment="CENTER" prefWidth="180">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                        <Label text="⚡" styleClass="stats-icon"/>
+                        <Label fx:id="activeConditionsLabel" text="0" styleClass="stats-number"/>
+                        <Label text="Active Conditions" styleClass="stats-label"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="900" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
 
         <Button text="Close Details" onAction="#handleCloseDetails" 
                 styleClass="secondary-button" alignment="CENTER_RIGHT"/>

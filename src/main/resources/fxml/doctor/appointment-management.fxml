@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.AppointmentManagementController">
+    
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1000">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📋 Patient Appointments" styleClass="title-label"/>
+                    <Label text="Manage patient appointment requests" styleClass="subtitle-label"/>
+                </VBox>
+
+                <!-- Controls Section -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="800">
+                    <Label text="Filter by Status:" styleClass="subtitle-label"/>
+                    <ComboBox fx:id="statusFilterComboBox" styleClass="combo-box" 
+                             prefWidth="180" prefHeight="40" onAction="#handleStatusFilter"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="🔄 Refresh" onAction="#handleRefresh" styleClass="secondary-button" 
+                           prefWidth="120" prefHeight="40"/>
+                </HBox>
+
+                <!-- Appointments Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="950" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="appointmentsTable" styleClass="table-view" VBox.vgrow="ALWAYS" 
+                              minHeight="300" prefHeight="400">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date & Time" prefWidth="150"/>
+                            <TableColumn fx:id="patientColumn" text="Patient Name" prefWidth="180"/>
+                            <TableColumn fx:id="reasonColumn" text="Reason for Visit" prefWidth="220"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="500">
+                    <Button fx:id="acceptButton" text="✅ Accept Appointment" onAction="#acceptAppointment" 
+                           styleClass="primary-button" prefWidth="180" prefHeight="45" disable="true"/>
+                    <Button fx:id="cancelButton" text="❌ Cancel Appointment" onAction="#cancelAppointment" 
+                           styleClass="secondary-button" prefWidth="180" prefHeight="45" disable="true"/>
+                </HBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane> 
+                       styleClass="primary-button" prefWidth="150" prefHeight="40" disable="true"/>
+                <Button fx:id="cancelButton" text="❌ Cancel Selected" onAction="#handleCancelAppointment" 
+                       styleClass="logout-button" prefWidth="150" prefHeight="40" disable="true"/>
+            </HBox>
+
+            <!-- Message Display -->
+            <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                   maxWidth="800" textAlignment="CENTER"/>
+        </VBox>
+    </center>
+</BorderPane>

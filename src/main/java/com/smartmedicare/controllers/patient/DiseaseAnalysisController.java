@@ -24,7 +24,7 @@ public class DiseaseAnalysisController {
     @FXML private TableColumn<DiseaseAnalysis, String> severityColumn;
     @FXML private PieChart probabilityChart;
     
-    private List<String> symptoms = new ArrayList<>();
+    private final List<String> symptoms = new ArrayList<>();
     private AnalysisService analysisService;
     
     @FXML
@@ -51,7 +51,12 @@ public class DiseaseAnalysisController {
         });
     }
     
+    /**
+     * Adds symptom to the list.
+     * Called by FXML when add symptom button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleAddSymptom() {
         String symptom = symptomField.getText().trim();
         if (!symptom.isEmpty() && !symptoms.contains(symptom)) {
@@ -74,7 +79,12 @@ public class DiseaseAnalysisController {
         }
     }
     
+    /**
+     * Analyzes symptoms and shows results.
+     * Called by FXML when analyze button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleAnalyze() {
         if (symptoms.isEmpty()) {
             DialogUtils.showError("No Symptoms", "No symptoms entered", 
@@ -105,7 +115,12 @@ public class DiseaseAnalysisController {
         probabilityChart.setData(pieChartData);
     }
     
+    /**
+     * Clears analysis results.
+     * Called by FXML when clear button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleClear() {
         symptoms.clear();
         updateSymptomChips();
@@ -113,7 +128,12 @@ public class DiseaseAnalysisController {
         probabilityChart.setData(FXCollections.emptyObservableList());
     }
     
+    /**
+     * Books appointment based on analysis.
+     * Called by FXML when book appointment button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleBookAppointment() {
         // Load appointment booking view through the dashboard controller
         ((PatientDashboardController) getParentController()).showAppointmentBooking();

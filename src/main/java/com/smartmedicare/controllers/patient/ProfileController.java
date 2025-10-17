@@ -84,7 +84,12 @@ public class ProfileController {
         }
     }
     
+    /**
+     * Saves profile changes.
+     * Called by FXML when save changes button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleSave() {
         try {
             patient.setName(nameField.getText().trim());
@@ -105,19 +110,38 @@ public class ProfileController {
             
             patientService.updatePatient(patient);
             
-            messageLabel.setText("Profile updated successfully!");
-            messageLabel.getStyleClass().setAll("message-label", "success-message");
+            showMessage("Profile updated successfully!", false);
             
         } catch (Exception e) {
-            DialogUtils.showError(
-                "Error Saving Profile",
-                "Failed to save profile changes",
-                "There was a problem saving your profile information. Please try again.");
+            showMessage("Error saving profile: " + e.getMessage(), true);
         }
     }
     
+    /**
+     * Resets form to original data.
+     * Called by FXML when cancel button is clicked.
+     */
     @FXML
+    @SuppressWarnings("unused") // Used by FXML
     private void handleCancel() {
         loadPatientData(); // Reload original data
+    }
+
+    private void showMessage(String message, boolean isError) {
+        messageLabel.setText(message);
+        messageLabel.getStyleClass().removeAll("message-label", "error");
+        messageLabel.getStyleClass().add("message-label");
+        if (isError) {
+            messageLabel.getStyleClass().add("error");
+        }
+        messageLabel.setVisible(true);
+        
+        // Auto-hide message after 3 seconds
+        new javafx.animation.Timeline(
+            new javafx.animation.KeyFrame(
+                javafx.util.Duration.seconds(3),
+                e -> messageLabel.setVisible(false)
+            )
+        ).play();
     }
 }

@@ -6,13 +6,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.smartmedicare.models.Patient;
+import com.smartmedicare.utils.DatabaseConnection;
 
 public class PatientService {
     private final MongoDatabase database;
     private final MongoCollection<Document> collection;
     
     public PatientService() {
-        this.database = DatabaseService.getInstance().getDatabase();
+        this.database = DatabaseConnection.getInstance().getDatabase();
         this.collection = database.getCollection("patients");
     }
     

@@ -1,26 +1,33 @@
 .dashboard {
-    background-color: #f5f6fa; /* standard */
-    -fx-background-color: #f5f6fa;
+    background-color: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
+    -fx-background-color: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
 }
 
 .header {
-    background-color: white; /* standard */
-    -fx-background-color: white;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    background-color: rgba(255, 255, 255, 0.98);
+    -fx-background-color: rgba(255, 255, 255, 0.98);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 5);
+    -fx-padding: 25;
+    padding: 25px;
 }
 
 .doctor-name {
-    font-size: 18px; /* standard */
-    font-weight: bold; /* standard */
-    -fx-font-size: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2c3e50;
+    -fx-text-fill: #2E86AB;
+    color: #2E86AB;
+    -fx-effect: dropshadow(gaussian, rgba(46,134,171,0.2), 3, 0, 0, 1);
 }
 
 .specialty {
-    font-size: 14px; /* standard */
-    -fx-font-size: 14px;
-    -fx-text-fill: #7f8c8d;
+    font-size: 16px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #4A5568;
+    color: #4A5568;
+    -fx-font-weight: 500;
+    font-weight: 500;
 }
 
 .stats-bar {

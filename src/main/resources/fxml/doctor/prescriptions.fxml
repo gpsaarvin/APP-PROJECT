@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.PrescriptionsController">
+    
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1100">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="💊 Prescriptions" styleClass="title-label"/>
+                    <Label text="Manage patient prescriptions and medications" styleClass="subtitle-label"/>
+                </VBox>
+
+                <!-- Controls Section -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="800">
+                    <Label text="Filter by Status:" styleClass="subtitle-label"/>
+                    <ComboBox fx:id="statusFilterComboBox" styleClass="combo-box" 
+                             prefWidth="150" prefHeight="40" onAction="#handleStatusFilter"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="➕ New Prescription" onAction="#createPrescription" styleClass="primary-button" 
+                           prefWidth="160" prefHeight="40"/>
+                    <Button text="🔄 Refresh" onAction="#refreshPrescriptions" styleClass="secondary-button" 
+                           prefWidth="100" prefHeight="40"/>
+                </HBox>
+
+                <!-- Prescriptions Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="1050" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="prescriptionsTable" styleClass="table-view" VBox.vgrow="ALWAYS" 
+                              minHeight="350" prefHeight="450">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                            <TableColumn fx:id="patientColumn" text="Patient" prefWidth="180"/>
+                            <TableColumn fx:id="medicationColumn" text="Medication" prefWidth="200"/>
+                            <TableColumn fx:id="dosageColumn" text="Dosage" prefWidth="150"/>
+                            <TableColumn fx:id="durationColumn" text="Duration" prefWidth="120"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="600">
+                    <Button fx:id="viewPrescriptionButton" text="👁️ View Details" onAction="#viewPrescription" 
+                           styleClass="primary-button" prefWidth="140" prefHeight="45" disable="true"/>
+                    <Button fx:id="editPrescriptionButton" text="✏️ Edit" onAction="#editPrescription" 
+                           styleClass="secondary-button" prefWidth="100" prefHeight="45" disable="true"/>
+                    <Button fx:id="printButton" text="🖨️ Print" onAction="#printPrescription" 
+                           styleClass="secondary-button" prefWidth="100" prefHeight="45" disable="true"/>
+                </HBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

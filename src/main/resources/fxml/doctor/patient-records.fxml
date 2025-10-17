@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.PatientRecordsController">
+    
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1200">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📋 Patient Records" styleClass="title-label"/>
+                    <Label text="View and manage patient medical records" styleClass="subtitle-label"/>
+                </VBox>
+
+                <!-- Search and Filter Controls -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="800">
+                    <Label text="Search Patient:" styleClass="subtitle-label"/>
+                    <TextField fx:id="searchField" styleClass="form-field" prefWidth="250" prefHeight="40"
+                             promptText="Enter patient name..." onKeyReleased="#handleSearch"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="🔄 Refresh" onAction="#refreshRecords" styleClass="secondary-button" 
+                           prefWidth="120" prefHeight="40"/>
+                </HBox>
+
+                <!-- Patient Records Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="1100" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="recordsTable" styleClass="table-view" VBox.vgrow="ALWAYS" 
+                              minHeight="400" prefHeight="500">
+                        <columns>
+                            <TableColumn fx:id="patientNameColumn" text="Patient Name" prefWidth="180"/>
+                            <TableColumn fx:id="lastVisitColumn" text="Last Visit" prefWidth="140"/>
+                            <TableColumn fx:id="diagnosisColumn" text="Last Diagnosis" prefWidth="220"/>
+                            <TableColumn fx:id="contactColumn" text="Contact" prefWidth="140"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="600">
+                    <Button fx:id="viewRecordButton" text="👁️ View Record" onAction="#viewPatientRecord" 
+                           styleClass="primary-button" prefWidth="150" prefHeight="45" disable="true"/>
+                    <Button fx:id="addRecordButton" text="➕ Add Record" onAction="#addMedicalRecord" 
+                           styleClass="secondary-button" prefWidth="150" prefHeight="45" disable="true"/>
+                    <Button fx:id="exportButton" text="📄 Export" onAction="#exportRecords" 
+                           styleClass="secondary-button" prefWidth="120" prefHeight="45"/>
+                </HBox>
+
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

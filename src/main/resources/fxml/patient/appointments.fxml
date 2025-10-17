@@ -3,31 +3,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20" styleClass="content-pane"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentsController">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.patient.AppointmentsController">
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1000">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
 
-    <Label text="My Appointments" styleClass="page-title"/>
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="📅 My Appointments" styleClass="title-label"/>
+                    <Label text="View and manage your medical appointments" styleClass="subtitle-label"/>
+                </VBox>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <ComboBox fx:id="statusFilter" promptText="Filter by Status"/>
-        <Region HBox.hgrow="ALWAYS"/>
-        <Button text="Book New Appointment" onAction="#handleNewAppointment" styleClass="action-button"/>
-    </HBox>
+                <!-- Controls Section -->
+                <HBox spacing="20" alignment="CENTER" maxWidth="800">
+                    <ComboBox fx:id="statusFilter" promptText="Filter by Status" styleClass="combo-box" 
+                             prefWidth="200" prefHeight="40"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Book New Appointment" onAction="#handleNewAppointment" 
+                           styleClass="primary-button" prefWidth="200" prefHeight="40"/>
+                </HBox>
 
-    <TableView fx:id="appointmentsTable" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="dateColumn" text="Date"/>
-            <TableColumn fx:id="timeColumn" text="Time"/>
-            <TableColumn fx:id="doctorColumn" text="Doctor"/>
-            <TableColumn fx:id="specializationColumn" text="Specialization"/>
-            <TableColumn fx:id="reasonColumn" text="Reason"/>
-            <TableColumn fx:id="statusColumn" text="Status"/>
-            <TableColumn fx:id="actionsColumn" text="Actions"/>
-        </columns>
-    </TableView>
+                <!-- Appointments Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="950" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="appointmentsTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100"/>
+                            <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="150"/>
+                            <TableColumn fx:id="specializationColumn" text="Specialization" prefWidth="130"/>
+                            <TableColumn fx:id="reasonColumn" text="Reason" prefWidth="200"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
 
-    <Label fx:id="messageLabel" styleClass="message-label" visible="false"/>
-</VBox>
+                <!-- Message Label -->
+                <Label fx:id="messageLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

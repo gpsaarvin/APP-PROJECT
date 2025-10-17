@@ -1,43 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox spacing="20" styleClass="content-pane"
-      stylesheets="@../../styles/doctor-dashboard.css"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.smartmedicare.controllers.doctor.PatientListController">
+<BorderPane styleClass="content-area" stylesheets="@../../css/styles.css"
+           xmlns:fx="http://javafx.com/fxml" fx:controller="com.smartmedicare.controllers.doctor.PatientListController">
     
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+    <center>
+        <StackPane alignment="CENTER">
+            <VBox spacing="25" alignment="CENTER" maxWidth="1000">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
 
-    <!-- Search and Filter Section -->
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <TextField fx:id="searchField" promptText="Search patients..."
-                  HBox.hgrow="ALWAYS"/>
-        <ComboBox fx:id="filterComboBox" prefWidth="150"/>
-        <Button text="Search" onAction="#handleSearch"/>
-    </HBox>
+                <!-- Header Section -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="👥 Patient List" styleClass="title-label"/>
+                    <Label text="Manage your patient records" styleClass="subtitle-label"/>
+                </VBox>
 
-    <!-- Patients Table -->
-    <TableView fx:id="patientsTable" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="nameColumn" text="Patient Name"/>
-            <TableColumn fx:id="ageColumn" text="Age"/>
-            <TableColumn fx:id="genderColumn" text="Gender"/>
-            <TableColumn fx:id="lastVisitColumn" text="Last Visit"/>
-            <TableColumn fx:id="statusColumn" text="Status"/>
-            <TableColumn fx:id="actionsColumn" text="Actions"/>
-        </columns>
-    </TableView>
+                <!-- Search and Filter Section -->
+                <HBox spacing="15" alignment="CENTER" maxWidth="800">
+                    <TextField fx:id="searchField" promptText="Search patients by name..." 
+                              styleClass="text-field" prefHeight="40" HBox.hgrow="ALWAYS"/>
+                    <ComboBox fx:id="filterComboBox" promptText="Filter by status" 
+                             styleClass="combo-box" prefWidth="150" prefHeight="40"/>
+                    <Button text="Search" onAction="#handleSearch" styleClass="primary-button" 
+                           prefWidth="100" prefHeight="40"/>
+                </HBox>
 
-    <!-- Pagination -->
-    <HBox spacing="10" alignment="CENTER">
-        <Pagination fx:id="pagination" maxPageIndicatorCount="5"/>
-    </HBox>
+                <!-- Patients Table -->
+                <VBox styleClass="card" spacing="15" maxWidth="950" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    
+                    <TableView fx:id="patientsTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="nameColumn" text="Patient Name" prefWidth="180"/>
+                            <TableColumn fx:id="ageColumn" text="Age" prefWidth="80"/>
+                            <TableColumn fx:id="genderColumn" text="Gender" prefWidth="100"/>
+                            <TableColumn fx:id="lastVisitColumn" text="Last Visit" prefWidth="150"/>
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="120"/>
+                            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
 
-    <!-- Status Label -->
-    <Label fx:id="statusLabel" styleClass="status-label" visible="false"/>
-</VBox>
+                <!-- Pagination Section -->
+                <HBox spacing="10" alignment="CENTER">
+                    <Pagination fx:id="pagination" maxPageIndicatorCount="5" styleClass="pagination"/>
+                </HBox>
+
+                <!-- Status Label -->
+                <Label fx:id="statusLabel" styleClass="success-label" visible="false" wrapText="true" 
+                       maxWidth="800" textAlignment="CENTER"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
